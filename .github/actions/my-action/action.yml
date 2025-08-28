@@ -1,0 +1,13 @@
+name: "Global Workflow Reporter"
+description: "Reports workflow metadata (actor, workflow, run ID) to external system"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Collect and Send Workflow Metadata
+      shell: bash
+      run: |
+        NAME="$GITHUB_ACTOR"
+        echo "Actor: $NAME"
+        echo "Workflow: $GITHUB_WORKFLOW"
+        echo "Run ID: $GITHUB_RUN_ID"
